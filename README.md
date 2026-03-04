@@ -63,6 +63,8 @@ createTypewriter(element, {
   threshold: 0.1,
   onStart: null,
   onEnd: null,
+  minSpeed: 50,
+  maxSpeed: 50,
 })
 ```
 
@@ -77,6 +79,24 @@ createTypewriter(element, {
 | `threshold` | `number` | `0.1` | IntersectionObserver threshold (0 to 1). Controls how much of the element must be visible before typing starts. |
 | `onStart` | `() => void \| null` | `null` | Callback fired when typing begins. |
 | `onEnd` | `() => void \| null` | `null` | Callback fired when typing completes. |
+| `minSpeed` | `number` | Same as `speed` | Minimum milliseconds per character. Used with `maxSpeed` for natural, randomized typing. |
+| `maxSpeed` | `number` | Same as `speed` | Maximum milliseconds per character. Used with `minSpeed` for natural, randomized typing. |
+
+### Natural typing speed
+
+By default, every character is typed at a fixed interval (`speed`). To create a more natural, human-like typing rhythm, set `minSpeed` and `maxSpeed` to define a range. Each character will be typed after a random delay within that range.
+
+```js
+// Natural typing: each character takes between 30ms and 120ms
+createTypewriter(element, {
+  minSpeed: 30,
+  maxSpeed: 120,
+})
+```
+
+When `minSpeed` and `maxSpeed` are not provided, they both default to the value of `speed`, preserving the original uniform behavior. If all three are provided, `minSpeed` and `maxSpeed` take priority — `speed` is only used as the fallback default.
+
+---
 
 ### Cursor styles
 
