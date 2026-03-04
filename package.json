@@ -36,7 +36,12 @@
 		"vue",
 		"vanilla-js"
 	],
+	"author": "Daniel Lowena-Irons",
 	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/dnirns/typewriter-scroll/issues"
+	},
+	"homepage": "https://github.com/dnirns/typewriter-scroll#readme",
 	"devDependencies": {
 		"typescript": "^5.0.0"
 	}
