@@ -1,48 +1,48 @@
 {
-	"name": "typewriter-scroll",
-	"version": "1.0.0",
-	"description": "Framework-agnostic typewriter effect triggered by scroll visibility. Works with vanilla JS, Svelte, React, Vue, or any DOM environment.",
-	"type": "module",
-	"main": "./dist/index.js",
-	"types": "./dist/index.d.ts",
-	"exports": {
-		".": {
-			"types": "./dist/index.d.ts",
-			"default": "./dist/index.js"
-		}
-	},
-	"files": [
-		"dist"
-	],
-	"scripts": {
-		"build": "tsc",
-		"prepublishOnly": "tsc"
-	},
-	"sideEffects": false,
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/dnirns/typewriter-scroll.git"
-	},
-	"keywords": [
-		"typewriter",
-		"scroll",
-		"animation",
-		"intersection-observer",
-		"typing",
-		"cursor",
-		"terminal",
-		"svelte",
-		"react",
-		"vue",
-		"vanilla-js"
-	],
-	"author": "Daniel Lowena-Irons",
-	"license": "MIT",
-	"bugs": {
-		"url": "https://github.com/dnirns/typewriter-scroll/issues"
-	},
-	"homepage": "https://github.com/dnirns/typewriter-scroll#readme",
-	"devDependencies": {
-		"typescript": "^5.0.0"
-	}
+  "name": "typewriter-scroll",
+  "version": "1.1.0",
+  "description": "Framework-agnostic typewriter effect triggered by scroll visibility. Works with vanilla JS, Svelte, React, Vue, or any DOM environment.",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "tsc"
+  },
+  "sideEffects": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dnirns/typewriter-scroll.git"
+  },
+  "keywords": [
+    "typewriter",
+    "scroll",
+    "animation",
+    "intersection-observer",
+    "typing",
+    "cursor",
+    "terminal",
+    "svelte",
+    "react",
+    "vue",
+    "vanilla-js"
+  ],
+  "author": "Daniel Lowena-Irons",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dnirns/typewriter-scroll/issues"
+  },
+  "homepage": "https://github.com/dnirns/typewriter-scroll#readme",
+  "devDependencies": {
+    "typescript": "^5.0.0"
+  }
 }
