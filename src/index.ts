@@ -17,6 +17,10 @@ export interface TypewriterOptions {
 	onStart?: (() => void) | null;
 	/** Callback fired when typing completes */
 	onEnd?: (() => void) | null;
+	/** Minimum ms per character for natural typing (default: same as speed) */
+	minSpeed?: number;
+	/** Maximum ms per character for natural typing (default: same as speed) */
+	maxSpeed?: number;
 }
 
 export interface TypewriterInstance {
@@ -105,8 +109,9 @@ function resolveCursor(cursorStyle: string): CursorPreset {
 }
 
 function resolveOptions(options: TypewriterOptions = {}): ResolvedOptions {
+	const speed = options.speed ?? 50;
 	return {
-		speed: options.speed ?? 50,
+		speed,
 		startDelay: options.startDelay ?? 0,
 		cursorStyle: options.cursorStyle ?? 'block',
 		cursorBlink: options.cursorBlink ?? 700,
@@ -114,8 +119,15 @@ function resolveOptions(options: TypewriterOptions = {}): ResolvedOptions {
 		loop: options.loop ?? false,
 		threshold: options.threshold ?? 0.1,
 		onStart: options.onStart ?? null,
-		onEnd: options.onEnd ?? null
+		onEnd: options.onEnd ?? null,
+		minSpeed: options.minSpeed ?? speed,
+		maxSpeed: options.maxSpeed ?? speed
 	};
+}
+
+function getTypingDelay(opts: ResolvedOptions): number {
+	if (opts.minSpeed === opts.maxSpeed) return opts.speed;
+	return Math.floor(Math.random() * (opts.maxSpeed - opts.minSpeed + 1)) + opts.minSpeed;
 }
 
 function applyCursorStyle(cursor: HTMLSpanElement, opts: ResolvedOptions): void {
@@ -183,7 +195,7 @@ export function createTypewriter(node: HTMLElement, options: TypewriterOptions =
 			if (token.type === 'tag') {
 				typeNext();
 			} else {
-				timeoutId = setTimeout(typeNext, opts.speed);
+				timeoutId = setTimeout(typeNext, getTypingDelay(opts));
 			}
 		}
 
