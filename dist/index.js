@@ -5,10 +5,12 @@ const CURSOR_PRESETS = {
     none: { char: '', css: '' }
 };
 const STYLE_ID = 'typewriter-scroll-styles';
+let currentBlinkSpeed = 0;
 function ensureStyles(blinkSpeed) {
-    if (document.getElementById(STYLE_ID))
+    const existing = document.getElementById(STYLE_ID);
+    if (existing && blinkSpeed === currentBlinkSpeed)
         return;
-    const style = document.createElement('style');
+    const style = existing ?? document.createElement('style');
     style.id = STYLE_ID;
     style.textContent = `
 		@keyframes typewriter-scroll-blink {
@@ -23,7 +25,9 @@ function ensureStyles(blinkSpeed) {
 			display: inline;
 		}
 	`;
-    document.head.appendChild(style);
+    currentBlinkSpeed = blinkSpeed;
+    if (!existing)
+        document.head.appendChild(style);
 }
 function tokenize(html) {
     const tokens = [];
@@ -63,7 +67,7 @@ function resolveCursor(cursorStyle) {
         return CURSOR_PRESETS[cursorStyle];
     return { char: cursorStyle, css: '' };
 }
-export function resolveOptions(options = {}) {
+function resolveOptions(options = {}) {
     return {
         speed: options.speed ?? 50,
         startDelay: options.startDelay ?? 0,

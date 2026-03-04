@@ -22,9 +22,6 @@ export interface TypewriterInstance {
     update(options: TypewriterOptions): void;
     destroy(): void;
 }
-type ResolvedOptions = Required<TypewriterOptions>;
-export declare function resolveOptions(options?: TypewriterOptions): ResolvedOptions;
 export declare function createTypewriter(node: HTMLElement, options?: TypewriterOptions): TypewriterInstance;
 /** Alias — works directly as a Svelte action via use:typewriter */
 export declare const typewriter: typeof createTypewriter;
-export {};

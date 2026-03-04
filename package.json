@@ -15,7 +15,13 @@
 		"dist"
 	],
 	"scripts": {
-		"build": "tsc"
+		"build": "tsc",
+		"prepublishOnly": "tsc"
+	},
+	"sideEffects": false,
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/dnirns/typewriter-scroll.git"
 	},
 	"keywords": [
 		"typewriter",
