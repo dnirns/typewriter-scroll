@@ -4,6 +4,10 @@ A framework-agnostic typewriter animation triggered by scroll visibility. Zero d
 
 Text is typed out character by character with a blinking terminal cursor when the element scrolls into view. Supports HTML content, multiple cursor styles, custom colors, looping, and lifecycle callbacks.
 
+## Demo
+
+![typewriter-scroll demo](demo.gif)
+
 ## Install
 
 ```bash
