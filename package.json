@@ -1,6 +1,6 @@
 {
   "name": "typewriter-scroll",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Framework-agnostic typewriter effect triggered by scroll visibility. Works with vanilla JS, Svelte, React, Vue, or any DOM environment.",
   "type": "module",
   "main": "./dist/index.js",
